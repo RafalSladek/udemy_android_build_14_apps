@@ -1,19 +1,33 @@
 package com.robpercival.myfirstandroidapp;
 
+import android.opengl.ETC1;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
 
 
     public void clickFunction(View view) {
-        Log.i("Info", "Button Tapped");
+        EditText myTextField = (EditText) findViewById(R.id.textField);
+        Log.i("Info", "Button Tapped" + myTextField.getText());
+        ((TextView) findViewById(R.id.hiRob)).setText(myTextField.getText());
     }
+
+    public void logIn(View view) {
+        EditText username = (EditText) findViewById(R.id.username);
+        EditText password = (EditText) findViewById(R.id.password);
+
+        Log.i("Username", username.getText().toString());
+        Log.i("Password", password.getText().toString());
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
