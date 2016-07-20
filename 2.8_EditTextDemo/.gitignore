@@ -5,3 +5,6 @@
 .DS_Store
 /build
 /captures
+.idea/encodings.xml
+.idea/runConfigurations.xml
+2.8_EditTextDemo.iml
