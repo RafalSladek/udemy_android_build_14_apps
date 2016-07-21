@@ -1,12 +1,27 @@
 package com.robpercival.myfirstandroidapp;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Switch;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    public void changeImage(final View view) {
+        Switch aSwitch = (Switch) findViewById(R.id.switch1);
+        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        int image;
+        if (aSwitch.isChecked()) {
+            image = R.drawable.fun2;
+        } else {
+            image = R.drawable.fun1;
+        }
+        imageView.setImageResource(image);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
