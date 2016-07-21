@@ -4,9 +4,37 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import java.text.DecimalFormat;
+import java.util.Locale;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    public static final Double euroToDollarRatio = 0.908272;
+
+    public void convert(final View view) {
+        EditText dollarField = (EditText) findViewById(R.id.dollarField);
+        Double dollars = Double.parseDouble(dollarField.getText().toString());
+
+        Double euros = dollars * euroToDollarRatio;
+        TextView textView = (TextView) findViewById(R.id.textView);
+
+        String formattedEuros = DecimalFormat.getCurrencyInstance(Locale.GERMANY).format(euros);
+        String currentCurrencyName = DecimalFormat.getCurrencyInstance(Locale.GERMANY).getCurrency().getDisplayName();
+        textView.setText(formattedEuros);
+
+        TextView currencyName = (TextView) findViewById(R.id.currencyName);
+        currencyName.setText(currentCurrencyName);
+        currencyName.setVisibility(View.VISIBLE);
+
+        TextView currencyLabel = (TextView) findViewById(R.id.textView2);
+        currencyLabel.setVisibility(View.VISIBLE);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
